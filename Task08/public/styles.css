@@ -1,0 +1,292 @@
+* { box-sizing: border-box; }
+
+:root {
+    --bg: #ffffff; /* Более светлый фон */
+    --card: #ffffff; /* Карточки сливаются с фоном */
+    --text: #333333; /* Чуть темнее текст для контраста */
+    --muted: #666666; /* Более темный приглушенный текст */
+    --border: #dddddd; /* Более светлая граница */
+    --primary: #555555; /* Приглушенный серый для основных элементов */
+    --primary-dark: #333333; /* Темнее для наведения */
+    --danger: #cc0000; /* Ярко-красный для опасных действий */
+    --danger-dark: #990000; /* Темно-красный для наведения */
+    --shadow: none; /* Убираем тени */
+    --radius: 4px; /* Уменьшаем радиус скругления */
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 28px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    box-shadow: none; /* Убрана тень */
+    margin-bottom: 20px;
+}
+
+.topbar-title {
+    font-weight: 800;
+    letter-spacing: 0.4px;
+}
+
+.topbar-nav {
+    display: flex;
+    gap: 12px;
+}
+
+.topbar-nav a {
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid transparent;
+}
+
+.topbar-nav a:hover {
+    background: #eeeeee; /* Более нейтральный цвет при наведении */
+}
+
+.topbar-nav a.active {
+    background: #e9e9e9; /* Более нейтральный активный фон */
+    border-color: var(--primary);
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+h1, h2, h3 {
+    margin: 0 0 12px;
+    font-weight: 700;
+}
+
+.card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: none; /* Убрана тень */
+    margin-bottom: 22px;
+    border: 1px solid var(--border);
+}
+
+.warning {
+    border-left: 5px solid var(--danger);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+}
+
+th, td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background: #f0f0f0; /* Более нейтральный фон заголовков таблицы */
+    font-weight: 700;
+}
+
+tbody tr:hover {
+    background: #f9f9f9; /* Более нейтральный фон при наведении */
+}
+
+.table-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px 18px;
+    margin-bottom: 14px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 6px;
+    color: var(--muted);
+}
+
+input, select, textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text);
+    background: #fff;
+    transition: border 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(85, 85, 85, 0.15); /* Изменен цвет тени фокуса */
+}
+
+input[type="time"]::-webkit-datetime-edit-ampm-field {
+    display: none;
+}
+
+input[type="time"] {
+    min-width: 140px;
+}
+
+.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+button, .btn-primary, .btn-secondary, .danger {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+button, .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: none; /* Убрана тень */
+}
+
+button:hover, .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #eeeeee; /* Более нейтральный фон */
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: #dddddd; /* Более нейтральный фон при наведении */
+    transform: translateY(-1px);
+}
+
+.danger {
+    background: var(--danger);
+    color: #fff !important;
+}
+
+.danger:hover {
+    background: var(--danger-dark);
+    transform: translateY(-1px);
+}
+
+form { margin: 0; }
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #e9e9e9; /* Более нейтральный фон */
+    color: var(--primary-dark);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.specializations {
+    margin: 12px 0 6px;
+}
+
+.spec-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.spec-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    transition: border 0.1s ease, box-shadow 0.1s ease;
+    color: var(--text);
+}
+
+.spec-item:hover {
+    border-color: var(--primary);
+    box-shadow: none; /* Убрана тень при наведении */
+}
+
+.spec-item input {
+    margin: 0;
+}
+
+.subnav {
+    display: inline-flex;
+    gap: 10px;
+    margin: 10px 0 16px;
+    padding: 6px;
+    background: #eeeeee; /* Более нейтральный фон */
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.subnav a {
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.subnav a:hover {
+    background: #dddddd; /* Более нейтральный фон при наведении */
+}
+
+.subnav a.active {
+    background: #e9e9e9; /* Более нейтральный активный фон */
+    color: var(--primary-dark);
+    font-weight: 700;
+    border: 1px solid var(--primary);
+}
